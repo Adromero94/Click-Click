@@ -14,6 +14,7 @@ def comment_list():
     query = CommentSection.objects.all()
     comments = [{"id": x.id, "body": x.body} for x in query]
     data = {
+        "isUser": False,
         "response": comments
     }
     return JsonResponse(data)

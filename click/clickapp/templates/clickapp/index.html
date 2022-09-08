@@ -2,4 +2,40 @@
 
 {% block content %}
 Welcome to Click click
+
+<div id='comment'>
+    Loading...
+</div>
+
+<script>
+    const listElement = document.getElementById("comment")
+
+    const xhr = new XMLHttpRequest()
+    const method = 'GET'
+    const url = "/list"
+    const responseType = "json"
+
+    function formatListElement(comment) {
+
+        var formattedComment = "<div id='comment-" + comment.id +" '><p>" + comment[i].body + "</p></div>"
+        return formattedComment
+    }
+    xhr.responseType = responseType
+    xhr.open(method, url)
+    xhr.onload = function() {
+        const serverResponse = xhr.response
+        var listedItems = xhr.response.response
+        var finalStr = ""
+        var 1;
+        for (i=0;i<listedItems.length; i++) {
+            var commentObj = listedItems[i]
+            var currentItem = formatListElement(commentObj)
+            finalStr += currentItem
+        }
+        listElement.innerHTML = finalStr
+        // console.log(listedItems)
+    }
+    xhr.send()
+
+</script>
 {% endblock content %}

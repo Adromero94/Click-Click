@@ -3,21 +3,21 @@ from django.contrib import admin
 
 # Create your models here.
 
-class User(models.Model):
-    username = models.CharField(max_length=30)
-    avatar = models.FileField(upload_to="images/", blank=True, null=True)
+# class User(models.Model):
+#     username = models.CharField(max_length=30)
+#     avatar = models.FileField(upload_to="images/", blank=True, null=True)
 
-    def __str__(self):
-        return self.username
+#     def __str__(self):
+#         return self.username
 
 class CommentSection(models.Model):
     # id = models.AutoField(primary_key=True)
     body = models.TextField(max_length=300, blank=True, null=True)
     image = models.FileField(upload_to='images/', blank=True, null=True)
-    created_date = models.DateTimeField(auto_now_add=True)
+    # created_date = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return self.body
+    # def __str__(self):
+    #     return self.body
     
 
 # class Like(models.Model):
